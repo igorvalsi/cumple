@@ -317,3 +317,40 @@ function actualizarContador(){
 setInterval(actualizarContador,1000);
 
 actualizarContador();
+const formulario = document.getElementById("formulario");
+const respuesta = document.getElementById("respuesta");
+
+
+formulario.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+    let nombre = document.getElementById("nombre").value;
+    let asistencia = document.getElementById("asistencia").value;
+
+
+    if(asistencia === "Sí"){
+
+        respuesta.innerHTML =
+        `
+        <h3>🎉 Gracias ${nombre}</h3>
+        <p>Tu asistencia fue confirmada.</p>
+        `;
+
+
+    }else{
+
+        respuesta.innerHTML =
+        `
+        <h3>😢 Gracias por avisar ${nombre}</h3>
+        <p>Esperamos verte en otra ocasión.</p>
+        `;
+
+    }
+
+
+    formulario.reset();
+
+
+});
